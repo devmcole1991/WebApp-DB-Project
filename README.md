@@ -1,5 +1,4 @@
 # WebApp-DB-Project
-Group 6: COP4710 
 
 # Problem:
 Most universities in the country hosts events around campus and off campus. These events are organized by college students in most of the cases.  Students are clustered (RSOs) by different organizations, clubs, fraternities around campus. These events are of different types: social, fundraising, tech talks, etc.  At the moment, each university has a website where they post their events for the upcoming weeks.   One needs to check the website in order to add each event to his/her calendar.   These events are just official events and not all events around the university are included. Another limitation is that one has no way to track weekly events. 
