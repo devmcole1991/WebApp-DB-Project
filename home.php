@@ -43,6 +43,9 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li>
+                                        <a tabindex="-2" href="createuni.php">Create University Profile</a>
+                                    </li>
+                                    <li>
                                         <a tabindex="-1" href="logout.php">Logout</a>
                                     </li>
                                 </ul>
