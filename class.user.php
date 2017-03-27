@@ -45,6 +45,28 @@ class USER
   }
  }
 
+ public function makeUni($uni_name,$userID,$uni_loc, $ad_id,$uni_des, $uni_im)
+ {
+    try{
+    $stmt = $this->conn->prepare("INSERT INTO affiliateduniversityprofile(name,userID,location,description,studentNo,image)
+          VALUES(:uni_name, :userID, :uni_loc, :ad_id,:uni_des,:uni_im)");
+    $stmt->bindparam(":uni_name",$uni_name);
+    $stmt->bindparam(":userID",$userID);
+    $stmt->bindparam(":uni_loc",$uni_loc);
+    $stmt->bindparam(":ad_id",$ad_id);
+    $stmt->bindparam(":uni_des",$uni_des);
+    $stmt->bindparam(":uni_im", $uni_im);
+    $stmt->execute();
+    return $stmt;
+  }
+  catch(PDOException $ex)
+  {
+    die("wasn't able to insert university profile into the database.");
+   echo $ex->getMessage();
+  }
+
+ }
+
  public function login($email,$upass)
  {
   try
@@ -105,6 +127,7 @@ class USER
   session_destroy();
   $_SESSION['userSession'] = false;
  }
+
 
  function send_mail($email,$message,$subject)
  {
