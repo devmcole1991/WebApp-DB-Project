@@ -7,6 +7,10 @@ if(!$user_home->is_logged_in())
 {
  $user_home->redirect('index.php');
 }
+else if($user_home->is_superadmin())
+{
+    $user_home->redirect('superadminhome.php');
+}
 
 $stmt = $user_home->runQuery("SELECT * FROM users WHERE userID=:uid");
 $stmt->execute(array(":uid"=>$_SESSION['userSession']));
@@ -42,9 +46,6 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
         <?php echo $row['userEmail']; ?> <i class="caret"></i>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li>
-                                        <a tabindex="-2" href="createuni.php">Create University Profile</a>
-                                    </li>
                                     <li>
                                         <a tabindex="-1" href="logout.php">Logout</a>
                                     </li>

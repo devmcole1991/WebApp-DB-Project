@@ -117,6 +117,19 @@ class USER
   }
  }
 
+public function is_superadmin()
+{
+    $adminCheck = $this->conn->prepare("SELECT * FROM usersuperadmin WHERE userID = :user_id");
+    $adminCheck->execute(array(":user_id"=>$_SESSION['userSession']));
+    $row2 = $adminCheck->fetch(PDO::FETCH_ASSOC);
+    
+    if($adminCheck->rowCount() > 0)
+    {
+      return true;
+    }
+
+}
+
  public function redirect($url)
  {
   header("Location: $url");
