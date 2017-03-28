@@ -34,74 +34,99 @@ if(isset($_POST['btn-login']))
 
 	<!--     Fonts and icons     -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
 
 	<!-- CSS Files -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="assets/css/material-kit.css" rel="stylesheet"/>
 </head>
-  <body id="login">
-    <div class="container">
-  <?php
-  if(isset($_GET['inactive']))
-  {
-   ?>
-            <br><br><br><div class='alert alert-danger'>
-    <strong>Sorry!</strong> This Account has not yet been activated. Please click on the activation link in your email and try again.
-   </div>
-            <?php
-  }
-  ?>
-        <form class="form-signin" method="post">
-        <?php
-        if(isset($_GET['error']))
-  {
-   ?>
-            <br><br><br><br><div class='alert alert-danger'>
-    <strong>Invalid Credentials</strong>
-   </div>
-            <?php
-  }
-  ?>
-  <nav class="navbar navbar-fixed-top">
-      <div class="container">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#"><h4>Group 6</h4></a>
-          </div>
 
-          <div class="collapse navbar-collapse" id="navigation">
+<body id="login">
+  <div class="section section-full-screen section-signup" style="background-image: url('assets/img/wallpaper.jpeg'); background-size: cover; background-position: top center; min-height: 750px;">
+      <nav class="navbar navbar-fixed-top">
+      <div class="container">
+          <div class="navbar-header">
+            <div class="logo-container">
+              <div class "brand">
+                <h3>COP4710</h3>
+              </div>
+            </div>
+          </div>
+          <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
               <li>
-                <h3>COP4710</h3>
+                <h4>Group 6</h4>
               </li>
             </ul>
           </div>
       </div>
-    </nav>
-      <center>
-      </br></br></br></br></br>
-        <h2 class="form-signin-heading">Sign In</h2><br><br>
-        <input type="email" class="input-block-level" placeholder="Email address" name="txtemail" required />
-        <br><br>
-        <input type="password" class="input-block-level" placeholder="Password" name="txtupass" required />
-        <br><br>
-        <button class="btn btn-large btn-primary" type="submit" name="btn-login">Sign in</button>
-        <a href="signup.php" class="btn btn-large">Sign Up</a>
-        <br>
-        <a href="fpass.php">Lost your Password? </a>
-      </form>
-    </center>
+    </nav> <!-- END TOP HEADER.. -->
+    <br><br>
+      <div class="container">
+				<div class="row">
+					<div class="col-md-4 col-md-offset-4">
+						<div class="card card-signup">
+             <form class="form-signin" method="post">
+              <div class="header header-primary text-center">
+									<h3>Sign In</h3>
+              </div>
 
-    </div> <!-- /container -->
-    <script src="bootstrap/js/jquery-1.9.1.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-  </body>
+                    <?php
+                    if(isset($_GET['inactive']))
+                    {
+                     ?>
+                          <div class="alert alert-info">
+                                <div class="container-fluid">
+                                 <h5>Sorry... <br> This Account has not yet been activated. Please click on the activation link in your email and try again.</h5>
+                                </div>
+                             </div>
+                              <?php
+                    }
+                    ?>
+                    <?php
+                    if(isset($_GET['error']))
+              {
+               ?>
+               <div class="alert alert-danger">
+                     <div class="container-fluid">
+                      <h5>Sorry... <br>  Invalid Username and/or Password. Please try again.</h5>
+                    </div>
+                </div>
+                        <?php
+              }
+              ?>
+              <br>
+              <div class="content">
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <i class="material-icons">email</i>
+                  </span>
+                  <input type="email" class="form-control" placeholder="Email address" name="txtemail" required />
+                </div>
+                <br>
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <i class="material-icons">lock</i>
+                  </span>
+                  <input type="password" class="form-control" placeholder="Password" name="txtupass" required />
+                </div>
+              </div>
+              <br><br>
+              <div class="footer text-center">
+                <button class="btn btn-large btn-primary" type="submit" name="btn-login">Sign in</button>
+                <a href="signup.php" class= "btn btn-large btn-default">Register</a>
+                <br><br>
+                <a href="fpass.php">Lost your Password?</a>
+                <br><br>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div><!-- /container -->
+    </div>
+<script src="bootstrap/js/jquery-1.9.1.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
 </html>

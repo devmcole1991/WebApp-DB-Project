@@ -24,10 +24,11 @@ if(isset($_POST['btn-signup']))
  if($stmt->rowCount() > 0)
  {
   $msg = "
-        <div class='alert alert-danger'>
-     <strong>Sorry!</strong> that email allready exists. Please try a different email address.
-     </div>
-     ";
+    <div class='alert alert-danger'>
+    <div class='container-fluid'>
+    <h5>Sorry...<br> That email allready exists. Please try a different email address.
+    </div>
+    </div>";
  }
  else
  {
@@ -53,12 +54,12 @@ if(isset($_POST['btn-signup']))
 
    $reg_user->send_mail($email,$message,$subject);
    $msg = "
-     <div class='alert alert-success'>
-      <button class='close' data-dismiss='alert'>&times;</button>
-      <strong>Success!</strong> We've sent an email to $email.
-                    Please click on the confirmation link in the email to create your account.
-       </div>
-     ";
+      <div class='alert alert-success'>
+      <div class='container-fluid'>
+      <h6> Success!<br> We've sent an email to $email.
+      Please click on the confirmation link in the email to create your account.</h6>
+      </div>
+      </div>";
   }
   else
   {
@@ -88,50 +89,76 @@ if(isset($_POST['btn-signup']))
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="assets/css/material-kit.css" rel="stylesheet"/>
 </head>
-  <body id="login">
-    <nav class="navbar navbar-fixed-top">
-      	<div class="container">
-          	<!-- Brand and toggle get grouped for better mobile display -->
-          	<div class="navbar-header">
-          		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
-              		<span class="sr-only">Toggle navigation</span>
-  		            <span class="icon-bar"></span>
-  		            <span class="icon-bar"></span>
-  		            <span class="icon-bar"></span>
-          		</button>
-          		<a class="navbar-brand" href="#"><h4>Group 6</h4></a>
-          	</div>
 
-          	<div class="collapse navbar-collapse" id="navigation">
-          		<ul class="nav navbar-nav navbar-right">
-  							<li>
-      						<h3>COP4710</h3>
-      					</li>
-          		</ul>
-          	</div>
-      	</div>
-      </nav>
-    <div class="container">
-      <center>
-
-      </br></br></br></br></br>
+  <body id="signup">
+    <div class="section section-full-screen section-signup" style="background-image: url('assets/img/wallpaper.jpeg'); background-size: cover; background-position: top center; min-height: 750px;">
+        <nav class="navbar navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+              <div class="logo-container">
+                <div class "brand">
+                  <h3>COP4710</h3>
+                </div>
+              </div>
+            </div>
+            <div class="collapse navbar-collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                  <h4>Group 6</h4>
+                </li>
+              </ul>
+            </div>
+        </div>
+      </nav> <!-- END TOP HEADER.. -->
+      <br><br>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-md-offset-4">
+            <div class="card card-signup">
+             <form class="form-signin" method="post">
+              <div class="header header-primary text-center">
+                  <h3>Registration</h3>
+              </div>
     <?php if(isset($msg)) echo $msg;  ?>
-      <form class="form-signin" method="post">
-        <h2 class="form-signin-heading">Sign Up</h2><br>
-        <input type="text" class="input-block-level" placeholder="Username" name="txtuname" required />
-        <br><br>
-        <input type="email" class="input-block-level" placeholder="Email address" name="txtemail" required />
-        <br><br>
-        <input type="password" class="input-block-level" placeholder="Password" name="txtpass" required />
-        <br><br>
-        <button class="btn btn-large btn-primary" type="submit" name="btn-signup">Sign Up</button>
-        <a href="index.php" class="btn btn-large">Sign In</a>
-      </br></br></br>
-      </form>
-    </center>
+            <br>
+            <div class="content">
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <i class="material-icons">face</i>
+                </span>
+                <input type="text" class="form-control" placeholder="Full Name" name="txtuname" required />
+              </div>
+              <br>
 
-    </div> <!-- /container -->
-    <script src="vendors/jquery-1.9.1.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-  </body>
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <i class="material-icons">email</i>
+                </span>
+                <input type="email" class="form-control" placeholder="Email address" name="txtemail" required />
+              </div>
+              <br>
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <i class="material-icons">lock</i>
+                </span>
+                <input type="password" class="form-control" placeholder="Password" name="txtupass" required />
+              </div>
+            </div>
+            <br>
+            <div class="footer text-center">
+              <button class="btn btn-large btn-primary" type="submit" name="btn-signup">Get Started!</button>
+              <br><br>
+              <a href="index.php">Need to sign in? Click here!</a>
+              <br><br>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> <!-- /container -->
+</div>
+<script src="vendors/jquery-1.9.1.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
 </html>
