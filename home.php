@@ -7,6 +7,10 @@ if(!$user_home->is_logged_in())
 {
  $user_home->redirect('index.php');
 }
+else if($user_home->is_superadmin())
+{
+    $user_home->redirect('superadminhome.php');
+}
 
 $stmt = $user_home->runQuery("SELECT * FROM users WHERE userID=:uid");
 $stmt->execute(array(":uid"=>$_SESSION['userSession']));
